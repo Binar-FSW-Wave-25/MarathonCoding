@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "postgres",
-    "password": "190921",
-    "database": "Main_game",
+    "password": "s0n0rk",
+    "database": "Main_Main",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

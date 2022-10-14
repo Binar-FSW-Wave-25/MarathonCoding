@@ -1,6 +1,12 @@
 const app = require("express").Router()
 const UserController = require("../controllers/userController")
 
-app.get("/register", UserController.handleRegisterPage)
+//Middleware
+const {restrict} = require('../middlewares/restrict')
+
+app.post("/register", UserController.handleRegisterPage)
+app.post('/login', UserController.handleLoginPage)
+
+
 
 module.exports = app

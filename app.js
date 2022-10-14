@@ -10,11 +10,11 @@ require('dotenv').config()
 
 app.use(express.urlencoded({extended:false}))
 
-// app.use(session({
-//     secret: process.env.SECRET,
-//     resave: false,
-//     saveUninitialized: false
-// }))
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
 
 // app.use(passport.initialize())
 // app.use(passport.session())

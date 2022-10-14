@@ -10,6 +10,7 @@ class UserController {
             const { fullname, username, role, password} = req.body
 
             const salt = bcrypt.genSaltSync(toNumber)
+            // console.log(toNumber);
             const hash = bcrypt.hashSync(password, salt)
 
             const inputUser = {
@@ -22,6 +23,16 @@ class UserController {
             res.status(200).json({ message: "sukses ya" })
         } catch(error) {
             console.log(error, "error say");
+        }
+    }
+    static async handleLoginPage(req, res) {
+        try {
+            const result = await User.authenticate(req.body)
+            // console.log(result.dataValues)
+            const result2 = await User.generateToken(req.body)
+            res.status(200).json({token: result2})
+        } catch (error) {
+            console.log(error, "ini error");
         }
     }
 }
